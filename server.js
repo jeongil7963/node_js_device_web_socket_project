@@ -16,7 +16,7 @@ io.on('connection', function(socket) {
 	socket.on('chat', function(msg){
 		console.log('send: ' + msg);
 
-		io.emit('6', msg);
+		io.emit(6, msg);
 	});
 });
 
