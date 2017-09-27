@@ -14,9 +14,8 @@ io.on('connection', function(socket) {
 	});
 
 	socket.on('chat', function(msg){
-		console.log('msg: ' + msg);
-
-		io.emit('chat', msg);
+		console.log('send: ' + msg);
+		io.sockets.to(6).emit('chat', msg);
 	});
 });
 
