@@ -5,19 +5,28 @@
   </head>
   <body>
     <center>
-	<input id="sendMsg"/><button id="chatBtn">버튼</button>
-    <ul id="msg"></ul>
+	     <input id="sendMsg"/><button id="chatBtn">설정</button>
+       <input id="sendMsg2" value="shoot"/><button id="shoot">촬영</button>
+
+
   </center>
+
+
 	<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script>
-		var socket = io();
 
+		var socket = io();
 		var chatBtn = document.querySelector('#chatBtn');
+    var chatBtn2 = document.querySelector('#shoot');
 
 		chatBtn.addEventListener("click", function(event) {
 			socket.emit('chat', $('#sendMsg').val());
 		});
+
+    chatBtn2.addEventListener("click", function(event) {
+      socket.emit('shoot', $('#sendMsg2').val());
+    });
 
 	</script>
   </body>

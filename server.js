@@ -15,9 +15,15 @@ io.on('connection', function(socket) {
 
 	socket.on('chat', function(msg){
 		console.log('send: ' + msg);
-
 		io.emit(6, msg);
 	});
+
+  socket.on('shoot', function(msg){
+    console.log('send: ' + msg);
+    io.emit(6, msg);
+  });
+
+
 });
 
 http.listen(3000, function() {
